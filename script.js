@@ -25,6 +25,8 @@ const callback = (_, observer) => {
 
     if (submitBtn) {
         submitBtn.onclick = () => {
+            const time = new Date().toLocaleString();
+            chrome.storage.sync.set({ lastSubmission: time });
             for (let i = 0; i < localStorage.length; i++) {
                 const matchedLang = localStorage.key(i).match(new RegExp(`^\\d+_\\d+_(${langList.join("|")})$`))?.[0]
                 if (matchedLang) {
@@ -38,4 +40,4 @@ const callback = (_, observer) => {
 
 const observer = new MutationObserver(callback);
 
-observer.observe(document.getElementById("__next"), { childList: true, subtree: true });
+observer.observe(document.getElementsByTagName("body")[0], { childList: true, subtree: true });

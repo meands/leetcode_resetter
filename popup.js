@@ -1,11 +1,4 @@
-"use strict";
-
-function handleSubmit(event) {
-    const time = Math.random();
-    chrome.storage.sync.set({ last: time });
-    const el = document.getElementById("last");
-    el.innerText = time;
-    //   window.close();
-}
-
-document.getElementById("submit").addEventListener("click", handleSubmit);
+(async () => {
+    const data = await chrome.storage.sync.get('lastSubmission');
+    document.getElementById("last").innerText = 'Last Submission: ' + data.lastSubmission;
+})()

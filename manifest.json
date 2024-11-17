@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "leetcode_resetter",
   "version": "1.0",
-  "description": "cleanup Leetcode working code from local storage after submission",
+  "description": "cleanup Leetcode working code from local storage after submission & show last submission time",
   "content_scripts": [
     {
       "js": ["script.js"],
